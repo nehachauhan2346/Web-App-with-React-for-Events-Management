@@ -65,12 +65,8 @@ export async function POST(req: Request) {
       lastName: last_name,
       photo: image_url,
     }
-    console.log(" user was created on clerk");
-    
-    const newUser = await createUser(user);
 
-    console.log(' here is the data of the new user : ', newUser);
-    
+    const newUser = await createUser(user);
 
     if(newUser) {
       await clerkClient.users.updateUserMetadata(id, {
